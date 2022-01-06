@@ -1,0 +1,17 @@
+.page{
+  padding: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+
+.search-input {
+  margin: 2vh 0 7vh 0 ;
+  width: 30vw;
+}
