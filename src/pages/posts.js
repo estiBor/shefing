@@ -40,15 +40,19 @@ export default function Posts() {
                 <div className='header-title'>{name} posts</div>
 
                 <div className='header'>
-                    <TextField 
-                     className='search-bar'
-                     id="outlined-search" 
-                     label="Search..." 
-                     type="search" 
-                     onChange={(e) => setWord(e.target.value)}
-                    />
-
-                    <Button variant="contained" onClick={()=> setOpenModal(true)}>Create Post</Button>
+                    <div className='search-bar'>
+                        <TextField 
+                        fullWidth
+                        id="outlined-search" 
+                        label="Search..." 
+                        type="search" 
+                        onChange={(e) => setWord(e.target.value)}
+                        />
+                    </div>
+                
+                    <Button className='create-btn' variant="contained" onClick={()=> setOpenModal(true)}>
+                        Create Post
+                    </Button>
                 </div>
 
                 <div>

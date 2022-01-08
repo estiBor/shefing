@@ -6,6 +6,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
+const fields =  ['Title', 'Body'];
+
 export default function FormDialog({openModal, setOpenModal, setData}) {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -39,27 +41,24 @@ export default function FormDialog({openModal, setOpenModal, setData}) {
       <Dialog open={openModal} onClose={handleClose}>
         <DialogTitle>Create Post</DialogTitle>
         <DialogContent>
-          <TextField
-            error={err}
-            autoFocus
-            margin="dense"
-            id="outlined-basic"
-            label="Title"
-            fullWidth
-            variant="outlined"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <TextField
-            error={err}
-            margin="dense"
-            id="outlined-basic"
-            label="Body"
-            fullWidth
-            variant="outlined"
-            multiline
-            rows={7}
-            onChange={(e) => setBody(e.target.value)}
-          />
+            {
+                fields.map((field) => {
+                    return (
+                        <TextField
+                            error={err}
+                            autoFocus
+                            margin="dense"
+                            id="outlined-basic"
+                            label={field}
+                            fullWidth
+                            variant="outlined"
+                            multiline = {field === 'Body'? true : false}
+                            rows={field === 'Body'? 7 : 1}
+                            onChange={(e) => field === 'Body'? setBody(e.target.value) :setTitle(e.target.value)}
+                        />
+                    )
+                })
+            }
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

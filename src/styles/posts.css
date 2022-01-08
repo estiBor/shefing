@@ -13,10 +13,15 @@
     display: flex;
     justify-content: space-between;
     margin: 4vh 0;
+    flex-direction: row;
 }
 
 .search-bar {
     width: 30vw;
+}
+
+.create-btn {
+    width: 10vw;
 }
 
 .post-card {
@@ -29,10 +34,20 @@
 }
 
 .title {
-    /* font-weight: bold; */
     font-size: 20px;
 }
 
 .body-container {
     padding: 2vh 1vw;
 }
+
+@media (max-width: 1000px) {
+    .header {
+      flex-direction: column;
+    }
+
+    .search-bar, .create-btn {
+        width: 42vw;
+        margin-bottom: 10px;
+    }
+  }
